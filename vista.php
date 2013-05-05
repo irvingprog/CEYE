@@ -16,6 +16,44 @@
 			var ids = null;
 			var cantidad = 0;
 
+			function buscar() {
+				createDialogLoad("Cargando...","Por favor, espere... <img src='img/cargar.gif' />" ,true,300);
+				for(var i=1; i<=100;i++) {
+					$("#casilla_"+i).css("background-color",$("#color_"+i).val());
+				}
+
+				var palabra = $("#palabra").val();
+				if (palabra != "") {
+					$.ajax({
+						async: true,
+						type: "POST",
+						dataType: "html",
+						url: "modelo.php",
+						data: "buscar=0&palabra="+palabra,
+						success:function(resultado) {
+							$("#dialog_load").dialog("close");
+							ids = (resultado).split("|-|");
+							cantidad = ids.length;
+							if(cantidad>1) {
+								for(i = 0;i < cantidad;i++)
+									$("#casilla_"+ids[i]).css("background-color","white");
+							}
+							else {
+								noResultadosOK("No se encontraron resultados","No se encontraron resultados, realiza una nueva búsqueda procurando escribir de forma correcta el nombre del instrumental.",500,"");
+							}
+						},
+
+						error: function() {
+							alert("Huy! acaba de ocurrir un error :C")
+						}
+					});
+				}
+				else {
+					$("#dialog_load").dialog("close");
+					campoVacioOK("Campo Vacío","Escribe el nombre del instrumental, no dejes el campo vacío.",500,"")
+				}
+			};
+
 			function revisar(numero) {
 				$("#dialog").dialog("close");
 				createDialogLoad("Cargando...","Por favor, espere... <img src='img/cargar.gif' />" ,true,300);
@@ -25,7 +63,7 @@
 					type: "POST",
 					dataType: "html",
 					url: "modelo.php",
-					data: "revisar=0&cr_ceye="+numero,
+					data: "revisar=0&numero="+numero,
 					success:function(resultado) {
 						$("#dialog_load").dialog("close");
 						showInstrumentalOK(resultado,500,"");
@@ -86,6 +124,8 @@
 				<?php endforeach; ?>
 			</table>
 			<div id="dialog"><span id="textMessageOK"></span></div>
+			<div id="noresultados"><span id="noresultadosOK"></span></div>
+			<div id="campovacio" ><span id="campovacioOK"></span></div>
 			<div id="dialog_load"><span id="textMessageLoad"></span></div>
 		</div>
 	</body>

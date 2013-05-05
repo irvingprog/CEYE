@@ -49,14 +49,14 @@
 
 	function getDatosCasilla() {
 		if (isset($_POST['revisar'])) {
-			$casillero = $_POST['cr_ceye'];
+			$casillero = $_POST['numero'];
 			$conexion = ConectarBaseDeDatos('localhost','root','3412954');
 			$resultado = ConsultaBaseDeDatos("select * from producto where ID_casilla='".$casillero."'","cr_ceye",$conexion);
 			
 			while($reg = mysql_fetch_array($resultado)) {
 				print "<p>".$reg["cantidad"]." ".utf8_decode(strtoupper($reg["nombre"]))."</p>";
 
-				if($reg['imagen']!= ""){
+				if($reg['imagen']!=""){
 					print "<img src='".$reg['imagen']."'/>";
 				}
 				else {
@@ -67,6 +67,19 @@
 		}
 	}
 
+	function BusquedaPorCasilla() {
+		if (isset($_POST['buscar'])) {
+			$palabra = $_POST['palabra'];
+			$conexion = ConectarBaseDeDatos('localhost','root','3412954');
+			$resultado = ConsultaBaseDeDatos("select * from producto where nombre like '%".$palabra."%'","cr_ceye",$conexion);
+		
+			while ($reg = mysql_fetch_array($resultado)) {
+				print $reg["ID_casilla"]."|-|";
+			}
+		}
+	}
+
 	#Obtener contenido de casilla
 	getDatosCasilla();
+	BusquedaPorCasilla();
 ?>
