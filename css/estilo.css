@@ -1,0 +1,108 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin-top: 15px;
+}
+
+table tr td{
+	cursor: pointer;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 35px;
+	padding-bottom: 35px;
+	border: 4px solid gray;
+}
+
+table tr td:hover {
+	border: 4px solid red;
+}
+
+#logo {
+	margin-left: 100px;
+	width: 200px;
+}
+
+#logo p {
+	font-size: 2.5em;
+}
+
+#logo p em {
+	color: #FF8000;
+	text-shadow: 2px 2px 3px #000;
+}
+
+#busqueda {
+	width: 600px;
+	text-align: center;
+	float: right;
+}
+
+#palabra {
+	width: 400px;
+	height: 40px;	
+	display: inline-table;
+	border: 1px solid #b30808;
+	box-shadow: 1px 1px 10px #df0909;
+	font-size: 1.5em;
+	vertical-align: top;
+}
+
+
+#buscar {
+	width: 120px;
+	height: 42px;
+	border:1px solid #df0909; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; text-align: center; color: #FFFFFF; background-color: #f62b2b;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f62b2b), color-stop(100%, #d20202));
+	background-image: -webkit-linear-gradient(top, #f62b2b, #d20202);
+	background-image: -moz-linear-gradient(top, #f62b2b, #d20202);
+	background-image: -ms-linear-gradient(top, #f62b2b, #d20202);
+	background-image: -o-linear-gradient(top, #f62b2b, #d20202);
+	background-image: linear-gradient(top, #f62b2b, #d20202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b, endColorstr=#d20202);
+}
+
+#buscar:hover {
+	border:1px solid #b30808; background-color: #e40a0a;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e40a0a), color-stop(100%, #9f0202));
+	background-image: -webkit-linear-gradient(top, #e40a0a, #9f0202);
+	background-image: -moz-linear-gradient(top, #e40a0a, #9f0202);
+	background-image: -ms-linear-gradient(top, #e40a0a, #9f0202);
+	background-image: -o-linear-gradient(top, #e40a0a, #9f0202);
+	background-image: linear-gradient(top, #e40a0a, #9f0202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#e40a0a, endColorstr=#9f0202);
+}
+
+#tabla {
+	width: 1330px;
+	margin: 20px auto;
+}
+
+#dialog{
+	text-align:center;
+}
+div#dialog p {
+	color: blue;
+	font-size: 1.2em;
+	line-height: 1em;
+}
+
+.numeracion {
+	background-color: yellow;
+	text-align: center;
+	border-radius: 60px;
+	border: 1px solid black;
+	font-weight: bold;
+	padding: 9px;
+}
+
+/*jquery*/
+
+.ui-autocomplete {
+	font-size: 1.1em;
+	max-height: 150px;
+	width: 400px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
