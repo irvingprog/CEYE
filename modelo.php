@@ -55,6 +55,14 @@
 			
 			while($reg = mysql_fetch_array($resultado)) {
 				print "<p>".$reg["cantidad"]." ".utf8_decode(strtoupper($reg["nombre"]))."</p>";
+
+				if($reg['imagen']!= ""){
+					print "<img src='".$reg['imagen']."'/>";
+				}
+				else {
+					print "Imagen N/A";
+				}
+
 			}
 		}
 	}
