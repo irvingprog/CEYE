@@ -11,7 +11,7 @@
 	include('modelo.php');
 
 	#Casillas por numero
-	$casillas = getCasilla();
+	$casillas = getNumeroCasilla();
 	
 	#funcion autocompletar para usar desde jquery
 	$instrumentos = getInstrumentos();

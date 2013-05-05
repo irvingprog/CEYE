@@ -13,7 +13,7 @@
 		return mysql_query($consulta,$conexion);
 	}
 
-	function getCasilla() {
+	function getNumeroCasilla() {
 		$conexion = ConectarBaseDeDatos('localhost','root','3412954');
 		$resultado = ConsultaBaseDeDatos('select * from casilla','cr_ceye',$conexion);
 
@@ -46,4 +46,19 @@
 
 		return $instrumentos;
 	}
+
+	function getDatosCasilla() {
+		if (isset($_POST['revisar'])) {
+			$casillero = $_POST['cr_ceye'];
+			$conexion = ConectarBaseDeDatos('localhost','root','3412954');
+			$resultado = ConsultaBaseDeDatos("select * from producto where ID_casilla='".$casillero."'","cr_ceye",$conexion);
+			
+			while($reg = mysql_fetch_array($resultado)) {
+				print "<p>".$reg["cantidad"]." ".utf8_decode(strtoupper($reg["nombre"]))."</p>";
+			}
+		}
+	}
+
+	#Obtener contenido de casilla
+	getDatosCasilla();
 ?>
